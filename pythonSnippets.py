@@ -350,22 +350,12 @@ def t11(a):
     a5l = aa5[0]
     a5d = aa5[1] - off
     a5 = s.unpack(f'>{a5l}s', b[a5d:(a5d + a5l)])[0]
-    # print('dfbergvre', a5l, a5d, a5)
-
-    # print(aa)
-    # print(cc)
-    # print(aa2)
-
-    # f = open('a', 'wb')
-    # f.write(a)
-    # print('abcdef'[2:4])
 
     bar = []
     bal = s.calcsize('>H')
     bsz = a1[0]
     bad = a1[1] - off
     ba = s.unpack(f'>{bsz}H', b[bad:(bad + bsz * bal)])
-    # print(ba, bad, bad + bsz * bal)
     bln = s.calcsize('>IHHd')
     for i in ba:
         j = i - off
@@ -375,20 +365,17 @@ def t11(a):
         ard = bb[2] - off
         ss = s.unpack(f'>{arl}s', b[ard:(ard + arl)])[0]
 
-        # print(bb, ss)
         bar.append((bb, ss))
 
     da = a7 - off
     dl = s.calcsize('HIB')
     dd = s.unpack('>HIB', b[da:(da + dl)])
     d2 = dd[2]
-    # print(dd, da)
 
     drs = dd[0]
     drd = dd[1] - off
     drl = s.calcsize('b')
     dar = s.unpack(f'>{drs}b', b[drd:(drd + drs * drl)])
-    # print(dar, drd, drl, drd + drs * drl, b[drd:(drd + drs * drl)])
 
     c = {
         'A1': [],
@@ -409,7 +396,6 @@ def t11(a):
     for i in dar:
         c.get('A7').get('D1').append(i)
 
-    # print(c)
     return c
 
 
